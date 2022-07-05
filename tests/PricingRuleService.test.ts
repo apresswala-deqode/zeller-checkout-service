@@ -6,7 +6,7 @@ describe("Pricing Rule Service", () => {
   const pricingRule = new PricingRule();
 
   describe("addPricingRule", () => {
-    it(" should add Ricing Rule", () => {
+    it("Should add Ricing Rule", () => {
       const offer: BulkDiscountOnXItem = {
         offerName: "BulkDiscountOnXItem",
         sku: Sku.ipd,
@@ -18,7 +18,7 @@ describe("Pricing Rule Service", () => {
   });
 
   describe("getPricingRules", () => {
-    it(" should get Pricing Rules", () => {
+    it("Should get Pricing Rules", () => {
       const offer: BulkDiscountOnXItem = {
         offerName: "BulkDiscountOnXItem",
         sku: Sku.ipd,

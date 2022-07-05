@@ -6,7 +6,7 @@ describe("ProductService", () => {
     CreateAndFetchProducts.getInstance();
 
   describe("addProduct", () => {
-    it(" should add the product to the products list", () => {
+    it("Should add the product to the products list", () => {
       const p1: ProductSchema = {
         sku: "ipd",
         name: "Super iPad",
@@ -18,7 +18,7 @@ describe("ProductService", () => {
   });
 
   describe("getProducts", () => {
-    it(" should return entire list of products", () => {
+    it("Should return entire list of products", () => {
       const p1: ProductSchema = {
         sku: "ipd",
         name: "Super iPad",
@@ -30,7 +30,7 @@ describe("ProductService", () => {
   });
 
   describe("getInstance", () => {
-    it(" should return instance of productService", () => {
+    it("Should return instance of productService", () => {
       expect(CreateAndFetchProducts.getInstance()).toEqual(productService);
     });
   });

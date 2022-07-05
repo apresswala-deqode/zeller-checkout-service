@@ -5,19 +5,23 @@ import { initializeProducts } from "../seeds/products/addProducts";
 
 describe("Checkout Service", () => {
   const pricingRules: PricingRule = initializePricingRules();
-  const checkout: Checkout = new Checkout(pricingRules);
+  let checkout: Checkout;
 
-  describe("scan", () => {
-    it(" should add sku to the map", () => {
+  beforeEach(() => {
+    checkout = new Checkout(pricingRules);
+  });
+
+  describe("Scan SKUs", () => {
+    it("Should add sku to the map", () => {
       checkout.scan("atv");
       expect(checkout.skuMap.get("atv")).toBe(1);
     });
   });
 
-  describe("total", () => {
+  describe("Total Cart Value", () => {
     initializeProducts();
 
-    it(" should return the total cart value", () => {
+    it("Should return the total cart value of $2718.95", () => {
       checkout.scan("atv");
       checkout.scan("ipd");
       checkout.scan("ipd");
@@ -26,6 +30,14 @@ describe("Checkout Service", () => {
       checkout.scan("ipd");
       checkout.scan("ipd");
       expect(checkout.total()).toBe("2718.95");
+    });
+
+    it("Should return the total cart value of $249.00", () => {
+      checkout.scan("atv");
+      checkout.scan("atv");
+      checkout.scan("atv");
+      checkout.scan("vga");
+      expect(checkout.total()).toBe("249.00");
     });
   });
 });
